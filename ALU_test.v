@@ -68,10 +68,6 @@ module ALU_test;
    // TO DO:
    // calculate the value of 'exp_zero' from the 'exp_result'
    // 
-   Any32 ez(
-        .in(exp_resultxp_result
-   );
-   assign exp_zero = 
    
    // Tests
 	always @ (posedge clk)		// trigger with the test clock
