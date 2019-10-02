@@ -1,3 +1,4 @@
+`include "ALU.v"
 `timescale 1ns / 1ps
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +44,7 @@ module ALU_test;
 	//
    // for each testcase.
    // Note: we will not store 'exp_zero' in this array.
-   wire [98:0] testvec;
+   reg [99:0] testvec[0:11];
 
    // The test clock generation
    always				// process always triggers
@@ -58,6 +59,7 @@ module ALU_test;
 		// TO DO:
 		// Read the content of the file testvectors_hex.txt into the 
 		// array testvec. The file contains values in hexadecimal format
+       $readmemh("testvectors_hex.txt", testvec);
 
 		err_cnt=0; // number of errors
 		vec_cnt=0; // number of vectors
@@ -66,6 +68,10 @@ module ALU_test;
    // TO DO:
    // calculate the value of 'exp_zero' from the 'exp_result'
    // 
+   Any32 ez(
+        .in(exp_resultxp_result
+   );
+   assign exp_zero = 
    
    // Tests
 	always @ (posedge clk)		// trigger with the test clock
@@ -107,5 +113,12 @@ module ALU_test;
 
    // TO DO:
    // Instantiate the Unit Under Test (UUT)
+   ALU DUT (
+       .a(a),
+       .b(b),
+       .op(aluop),
+       .out(result),
+       .all_zeroes(zero)
+   );
    
 endmodule
