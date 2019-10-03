@@ -34,13 +34,13 @@ module ArithmeticPart (
         .out(plus_a_b)
     );
 
-    genvar i;
+    /*genvar i;
     generate
         for (i = 0; i < 32; i = i + 1) begin
             assign slt_res[i] = plus_a_b[31];
         end
-    endgenerate
-
+    endgenerate*/
+    assign slt_res = (plus_a_b[31] == 1'b1) ? 32'hFFFFFFFF : 32'h0;
     assign out = op[1] ? slt_res : plus_a_b;
 
 endmodule // ArithmeticPart

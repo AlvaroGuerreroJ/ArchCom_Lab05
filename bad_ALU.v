@@ -10,7 +10,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module bad_ALU(
-	input[31:0] a, b,
+	input [31:0] a, b,
 	input	[3:0] aluop,
 	output [31:0] result,
 	output zero
@@ -23,15 +23,15 @@ module bad_ALU(
    reg [31:0]		diff;
    wire				ss0;
    wire 				ss1;
-   wire 				Ss2;
+   wire 				ss2;
    wire 				ss3;
 
-	assign {ss0,ss1,Ss2,ss3} = aluop;	// make assigns
+	assign {ss0,ss1,ss2,ss3} = aluop;	// make assigns
 
    // define the logicfunction
     always @ ( * )
     begin
-        if (Ss2 == 0)
+        if (ss2 == 0)
             if (ss3 == 0)
                 logicsel = a & b;
             else
@@ -66,6 +66,6 @@ module bad_ALU(
 	end
 
 	assign result = alu_val;
-	assign zero = (alu_val == 32'b0) ? 1: 0;
+	assign zero = (alu_val == 32'b0) ? 1 : 0;
 
 endmodule
