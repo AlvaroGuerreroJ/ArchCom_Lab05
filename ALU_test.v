@@ -112,6 +112,11 @@ module ALU_test;
         end
     end
 
+    initial begin
+        $dumpfile("ALU_test_wave.vcd");
+        $dumpvars;
+    end
+
     // TO DO:
     // Instantiate the Unit Under Test (UUT)
     // ALU DUT (
