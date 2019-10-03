@@ -1,5 +1,6 @@
-`include "ALU/ALU.v"
+// `include "ALU/ALU.v"
 `include "Any32.v"
+`include "bad_ALU.v"
 `timescale 1ns / 1ps
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -113,12 +114,20 @@ module ALU_test;
 
     // TO DO:
     // Instantiate the Unit Under Test (UUT)
-    ALU DUT (
+    // ALU DUT (
+    //     .a(a),
+    //     .b(b),
+    //     .op(aluop),
+    //     .out(result),
+    //     .all_zeroes(zero)
+    // );
+
+    bad_ALU DUT (
         .a(a),
         .b(b),
-        .op(aluop),
-        .out(result),
-        .all_zeroes(zero)
+        .aluop(aluop),
+        .result(result),
+        .zero(zero)
     );
 
 endmodule
